@@ -79,6 +79,10 @@ pub mod std_impl;
 #[cfg(feature = "validation")]
 pub mod validation;
 
+#[cfg(feature = "std")]
+#[cfg(feature = "indexmap")]
+pub mod indexmap;
+
 use core::{
     fmt,
     marker::{PhantomData, PhantomPinned},

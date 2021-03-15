@@ -227,7 +227,7 @@ impl<K: Hash + Eq, V> ArchivedHashMap<K, V> {
     }
 
     #[inline]
-    fn serialize_from_iter<
+    pub fn serialize_from_iter<
         'a,
         KU: 'a + Serialize<S, Archived = K> + Hash + Eq,
         VU: 'a + Serialize<S, Archived = V>,
@@ -566,7 +566,7 @@ pub struct ArchivedHashMapResolver {
 }
 
 impl ArchivedHashMapResolver {
-    fn resolve_from_len<K, V>(self, pos: usize, len: usize) -> ArchivedHashMap<K, V> {
+    pub fn resolve_from_len<K, V>(self, pos: usize, len: usize) -> ArchivedHashMap<K, V> {
         unsafe {
             ArchivedHashMap {
                 len: len as ArchivedUsize,
