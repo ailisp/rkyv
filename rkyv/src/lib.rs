@@ -83,6 +83,10 @@ pub mod validation;
 #[cfg(feature = "indexmap")]
 pub mod indexmap;
 
+#[cfg(feature = "std")]
+#[cfg(feature = "cranelift-entity")]
+pub mod primarymap;
+
 use core::{
     fmt,
     marker::{PhantomData, PhantomPinned},
