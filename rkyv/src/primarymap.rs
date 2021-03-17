@@ -57,7 +57,7 @@ where
 impl<K: Serialize<S> + EntityRef, V: Serialize<S>, S: Serializer + ?Sized> Serialize<S>
     for PrimaryMap<K, V>
 where
-    K::Archived: Hash + EntityRef,
+    K::Archived: EntityRef,
 {
     fn serialize(&self, serializer: &mut S) -> Result<Self::Resolver, S::Error> {
         unsafe { core::mem::transmute::<&PrimaryMap<K, V>, &PrimaryMapPub<K, V>>(self) }
